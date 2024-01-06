@@ -1,9 +1,13 @@
 import { SelectInput, TextInput } from "./Input";
 import { Button } from "./Button";
 import { useState } from "react";
+import { uuidv4 } from "@/utils";
 
-export const DistrictForm = ({ onSave, provinces }) => {
+export const DistrictForm = ({ onSave,provinces }) => {
   const [form, setForm] = useState({ province_id: "", name: "", namekm: "" });
+  const [districts, setDistricts] = useState([]);
+
+
 
   const onChange = (e) => {
     const name = e.target.name;
@@ -17,9 +21,9 @@ export const DistrictForm = ({ onSave, provinces }) => {
   const onSelectProvince = (e) => {};
 
   const onClickSave = () => {
-    //   onSave(form)
-    //   setForm({name:"",namekm:""});
-    console.log(form);
+      onSave(form)
+      setForm({name:"",namekm:"",province_id:""});
+    
   };
   return (
     <div>
